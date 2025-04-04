@@ -47,7 +47,7 @@ void in_order(Arvore *a){
     }
 }
 
-//========= Exercício 2 - pós-ordem  E D R====
+//========= Exercício 2 - pós-ordem  E D R ====
 void pos_order(Arvore *a){
     if(!verifica_arv_vazia(a)){
         pos_order(a->esq);
@@ -74,27 +74,28 @@ int pertence(Arvore *a, char c){
 
 //========= Exercício 4 - conta nós ====
 int conta_nos(Arvore *a){
-    int conta = 0;
+    int conta = 1;
     if(verifica_arv_vazia(a)){
         return 0;
     }
     conta += conta_nos(a->dir);
     conta += conta_nos(a->esq);
-    return conta + 1; //considerando o primeiro nó 
+    return conta ; //considerando o primeiro nó 
 
 }
 
 //========= Exercício 5 - calcula altura ====
 int altura(Arvore *a){
-    int conta_esq = 0;
-    int conta_dir = 0;
+    int conta_esq;
+    int conta_dir;
     if(!verifica_arv_vazia(a)){
-       conta_dir = altura(a->dir);
-       conta_esq = altura(a->esq);
-       return 1 + (conta_esq > conta_dir ? conta_esq : conta_dir);
+       conta_dir += altura(a->dir);
+       conta_esq += altura(a->esq);
+       return 1 + (conta_esq > conta_dir ? conta_esq : conta_dir); //somamos 1 para considerar a altura da raiz até a subarvore 
+       // nesse return também fizemos a expressão de verificar quem é o maior, caso seja falsa a expressão ele vai para a outra opção
         
     }else{
-        return 0;
+        return -1; // se árvore vazia, ponteiro enterrado
     }
 }
 
