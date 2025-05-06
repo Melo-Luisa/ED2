@@ -161,6 +161,10 @@ int main () {
     printf("Maior: %d\n", maior);
 
    // ====== Q5 ====
+   /*a) No primeiro caso teremos O(n) no pior caso pois teremos que percorrer a arvore inteira e seus niveis são maiores
+   b) No segundo caso teremos algo mais rapido com custo medio de log n
+   
+   */
 
    return 0;
 }
