@@ -23,7 +23,7 @@ int linear_probing (int key, int iter, int M) {
 
 int quadratic_probing (int key, int iter, int M) {
    /*Completar!*/
-   int j = (funcao_hash(key, M) + iter + pow(iter,2)) % M;
+   int j = (funcao_hash(key, M) + iter * iter) % M;
    return j;
 }
 
